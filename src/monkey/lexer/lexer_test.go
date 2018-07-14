@@ -38,6 +38,6 @@ func TestNextTokenWithCode(t *testing.T) {
 
 	for i, tt := range InputLetAndAddTokens {
 		tok := line.NextToken()
-		tokenAssertions.fatalToken("Test " + strconv.Itoa(i),tt,tok)
+		tokenAssertions.fatalToken("Test "+strconv.Itoa(i), tt, tok)
 	}
 }

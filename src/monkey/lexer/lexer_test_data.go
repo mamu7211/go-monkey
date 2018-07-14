@@ -2,14 +2,14 @@ package lexer
 
 import "monkey/token"
 
-const InputLetAndAddCode = `let five = 5
-let ten = 10
+const InputLetAndAddCode = `let five = 5;
+let ten = 10;
 
 let add = fn(x,y) {
 	x + y
 };
 
-let result = add(five, ten)`
+let result = add(five, ten);`
 
 var InputLetAndAddTokens = []ExpectedToken{
 {token.LET, "let"},
@@ -45,7 +45,7 @@ var InputLetAndAddTokens = []ExpectedToken{
 {token.IDENT, "five"},
 {token.COMMA, ","},
 {token.IDENT, "ten"},
-{token.RBRACE, ")"},
+{token.RPAREN, ")"},
 {token.SEMICOLON, ";"},
-{token.EOF, "let"},
+{token.EOF, ""},
 }

@@ -13,6 +13,11 @@ type ExpectedToken struct {
 type TokenT testing.T
 
 func (t *TokenT) fatalToken(description string, expected ExpectedToken, actual token.Token) {
-	t.Fatalf("%s - type wrong. Expected Type=%q, got Type=%q, Literal=%q", description, expected.Type, actual.Type, actual.Literal)
-	t.Fatalf("%s - literal wrong. Expected Type=%q, got Type=%q, Literal=%q", description, expected.Literal, actual.Type, actual.Literal)
+	if expected.Type != actual.Type {
+		t.Fatalf("%s - type wrong. Expected %q/%q, got %q/%q", description, expected.Type, expected.Literal, actual.Type, actual.Literal)
+	}
+
+	if expected.Literal != actual.Literal {
+		t.Fatalf("%s - literal wrong. Expected %q/%q, got %q/%q", description, expected.Literal, expected.Literal, actual.Type, actual.Literal)
+	}
 }
