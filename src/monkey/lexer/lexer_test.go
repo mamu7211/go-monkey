@@ -27,7 +27,7 @@ func TestNextToken(t *testing.T) {
 		{token.EOF, ""},
 	}
 
-	line := NewLexer(input)
+	line := New(input)
 
 	for i, expected := range tests {
 		actual := line.NextToken()
@@ -39,7 +39,7 @@ func TestNextTokenWithCode(t *testing.T) {
 
 	tokenAssertions := (*TokenT)(t)
 
-	lexer := NewLexer(InputLetAndAddCode)
+	lexer := New(InputLetAndAddCode)
 
 	for i, tt := range InputLetAndAddTokens {
 		tok := lexer.NextToken()
@@ -49,7 +49,7 @@ func TestNextTokenWithCode(t *testing.T) {
 
 func TestInputEqualsNotEquals(t *testing.T) {
 	tokenAssertions := (*TokenT)(t)
-	lexer := NewLexer(InputEqualsNotEquals)
+	lexer := New(InputEqualsNotEquals)
 	for i, tt := range InputEqualsNotEqualsTokens {
 		tok := lexer.NextToken()
 		tokenAssertions.fatalToken("Test "+strconv.Itoa(i), tt, tok)

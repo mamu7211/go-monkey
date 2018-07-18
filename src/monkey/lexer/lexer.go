@@ -11,7 +11,7 @@ type Lexer struct {
 	ch           byte
 }
 
-func NewLexer(input string) *Lexer {
+func New(input string) *Lexer {
 	lexer := &Lexer{input: input}
 	lexer.readChar()
 	return lexer
